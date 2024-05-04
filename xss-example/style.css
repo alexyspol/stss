@@ -1,0 +1,170 @@
+:root {
+    --space: 20px;
+
+    --color-primary: #212D40;
+    --color-secondary: #364156;
+    --color-thirdiary: #49556B;
+    --color-accent: #A5F8D3;
+
+    --color-bg: #eee;
+    --color-card-bg: var(--color-secondary);
+
+    --color-title: white;
+    --color-text: #F1F7ED;
+
+    --color-comment-bg: var(--color-thirdiary);
+
+    --color-input-bg: var(--color-thirdiary);
+    --color-input-inset: var(--color-thirdiary);
+
+    --color-button-bg: var(--color-thirdiary);
+    --color-button-shadow: var(--color-primary);
+}
+
+::selection {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-bg);
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.6rem;
+}
+
+body {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 50em;
+    margin: 0 auto;
+    padding-inline: var(--space);
+}
+
+.card {
+    margin-block: var(--space);
+    background-color: var(--color-card-bg);
+    box-shadow: 0 0 var(--space) var(--color-shadow);
+}
+
+h1 {
+    margin: 0;
+    padding: var(--space);
+    text-align: center;
+    background-color: var(--color-primary);
+    color: var(--color-title);
+    font-size: 3.5rem;
+}
+
+h2 {
+    margin: 0;
+    padding: var(--space);
+    padding-bottom: 0;
+    color: var(--color-title);
+    font-size: 1.8rem;
+}
+
+.comment-list {
+    margin: 0;
+    padding: var(--space);
+    list-style: none;
+}
+
+.comment {
+    margin-top: 0;
+    margin-bottom: var(--space);
+    padding: var(--space);
+    background-color: var(--color-comment-bg);
+    color: var(--color-text);
+    box-shadow: inset 0 0 var(--space) var(--color-card-bg);
+}
+
+.comment-meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-accent);
+}
+
+.comment-body {
+    text-align: justify;
+}
+
+p:first-child {
+    margin-top: 0;
+}
+
+p:not(:first-child) {
+    margin: 0;
+}
+
+.divider {
+    margin-inline: auto;
+    width: 50%;
+    height: 2px;
+    background-color: var(--color-comment-bg);
+}
+
+.form {
+    padding: var(--space);
+}
+
+[class^="form-"] {
+    padding: var(--space);
+    margin-bottom: var(--space);
+    width: 100%;
+    font-family: inherit;
+    display: block;
+    background-color: var(--color-input-bg);
+    border: none;
+    box-shadow: inset 0 0 var(--space) var(--color-card-bg);
+    font-size: inherit;
+}
+
+[class^="form-"],
+[class^="form-"]::placeholder {
+    color: var(--color-accent);
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space);
+}
+
+[class^="button-"] {
+    padding: var(--space);
+    background-color: var(--color-button-bg);
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    color: var(--color-accent);
+    font-family: inherit;
+    font-size: inherit;
+    box-shadow: 0 0 var(--space) var(--color-button-shadow);
+    transition: all 200ms ease-in-out;
+}
+
+[class^="button-"]:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 calc(1.4 * var(--space)) var(--color-button-shadow);
+}
+
+[class^="form-"]:focus,
+[class^="button-"]:focus {
+    outline: 2px solid var(--color-accent);
+}
