@@ -19,9 +19,9 @@ $sql_insert_comment = "INSERT INTO comments (username, date_posted, comment) VAL
 
 // Array of dummy comments
 $comments = [
-    ["John", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et nisi elementum, pellentesque leo eget, finibus turpis."],
-    ["Alice", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et nisi elementum, pellentesque leo eget, finibus turpis."],
-    ["Bob", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et nisi elementum, pellentesque leo eget, finibus turpis."]
+    ["John", "Just posted my first comment! 🚀"],
+    ["Alice", "Testing out the comment feature, looks great! 👍"],
+    ["Bob", "Joining the conversation with my comment! 🗣️"]
 ];
 
 // Get the current date
