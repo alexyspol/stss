@@ -1,24 +1,13 @@
 :root {
-    --space: 20px;
+    --color-primary: #61bc84;
+    --color-secondary: #2d2d2d;
+    --color-tertiary: #e0e0e0;
+    --color-quaternary: #2E8B57;
 
-    --color-primary: #212D40;
-    --color-secondary: #364156;
-    --color-thirdiary: #49556B;
-    --color-accent: #A5F8D3;
+    --font-body: "Switzer", sans-serif;
+    --font-headings: "Gambarino", sans-serif;
 
-    --color-bg: #eee;
-    --color-card-bg: var(--color-secondary);
-
-    --color-title: white;
-    --color-text: #F1F7ED;
-
-    --color-comment-bg: var(--color-thirdiary);
-
-    --color-input-bg: var(--color-thirdiary);
-    --color-input-inset: var(--color-thirdiary);
-
-    --color-button-bg: var(--color-thirdiary);
-    --color-button-shadow: var(--color-primary);
+    --space: 1.5rem;
 }
 
 ::selection {
@@ -37,10 +26,10 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--color-bg);
+    background-color: var(--color-secondary);
     min-height: 100vh;
     min-height: 100dvh;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-body);
     font-size: 1.6rem;
 }
 
@@ -56,26 +45,12 @@ body {
     padding-inline: var(--space);
 }
 
-.card {
-    margin-block: var(--space);
-    background-color: var(--color-card-bg);
-    box-shadow: 0 0 var(--space) var(--color-shadow);
-}
-
-h1 {
-    margin: 0;
-    padding: var(--space);
-    text-align: center;
-    background-color: var(--color-primary);
-    color: var(--color-title);
-    font-size: 3.5rem;
-}
-
 h2 {
     margin: 0;
     padding: var(--space);
     padding-bottom: 0;
-    color: var(--color-title);
+    color: var(--color-primary);
+    font-family: var(--font-headings);
     font-size: 1.8rem;
 }
 
@@ -89,26 +64,19 @@ h2 {
     margin-top: 0;
     margin-bottom: var(--space);
     padding: var(--space);
-    background-color: var(--color-comment-bg);
-    color: var(--color-text);
-    box-shadow: inset 0 0 var(--space) var(--color-card-bg);
+    color: var(--color-tertiary);
+    border: 2px solid var(--color-primary);
 }
 
 .comment-meta {
     display: flex;
     justify-content: space-between;
-    color: var(--color-accent);
+    color: var(--color-primary);
+    margin-block: 0 var(--space);
 }
 
 .comment-body {
     text-align: justify;
-}
-
-p:first-child {
-    margin-top: 0;
-}
-
-p:not(:first-child) {
     margin: 0;
 }
 
@@ -116,7 +84,7 @@ p:not(:first-child) {
     margin-inline: auto;
     width: 50%;
     height: 2px;
-    background-color: var(--color-comment-bg);
+    background-color: var(--color-primary);
 }
 
 .form {
@@ -129,42 +97,39 @@ p:not(:first-child) {
     width: 100%;
     font-family: inherit;
     display: block;
-    background-color: var(--color-input-bg);
-    border: none;
-    box-shadow: inset 0 0 var(--space) var(--color-card-bg);
+    background: transparent;
+    color: var(--color-tertiary);
+    border: 2px solid var(--color-primary);
     font-size: inherit;
 }
 
-[class^="form-"],
 [class^="form-"]::placeholder {
-    color: var(--color-accent);
+    color: var(--color-primary);
 }
 
 .buttons {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap: var(--space);
 }
 
 [class^="button-"] {
     padding: var(--space);
-    background-color: var(--color-button-bg);
+    background: transparent;
     cursor: pointer;
-    border: none;
+    border: 2px solid var(--color-primary);
     text-decoration: none;
-    color: var(--color-accent);
+    color: var(--color-primary);
     font-family: inherit;
     font-size: inherit;
-    box-shadow: 0 0 var(--space) var(--color-button-shadow);
-    transition: all 200ms ease-in-out;
 }
 
-[class^="button-"]:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 calc(1.4 * var(--space)) var(--color-button-shadow);
+.button-reset {
+    color: var(--color-tertiary);
+    border-color: currentColor;
 }
 
 [class^="form-"]:focus,
 [class^="button-"]:focus {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid transparent;
 }

@@ -8,54 +8,49 @@
 </head>
 <body>
     <div class="container">
-        <div class="card">
+        <h2>Comments:</h2>
 
-            <h1>XSS Me</h1>
+        <?php if ($result->num_rows > 0): ?>
 
-            <h2>Comments:</h2>
+            <ul class="comment-list">
 
-            <?php if ($result->num_rows > 0): ?>
+                <?php while($row = $result->fetch_assoc()):
 
-                <ul class="comment-list">
+                    $username = strtolower($row['username']);
+                    $date_posted = date("Y-m-d", strtotime($row['date_posted']));
+                    $comment = $row['comment'];
+                    ?>
 
-                    <?php while($row = $result->fetch_assoc()):
+                    <li class="comment">
+                        <p class="comment-meta">
+                            <span class="comment-username">@<?php echo $username ?></span>
+                            <span class="comment-date-posted"><?php echo $date_posted ?></span>
+                        </p>
+                        <p class="comment-body"><?php echo $comment ?></p>
+                    </li>
 
-                        $username = strtolower($row['username']);
-                        $date_posted = date("Y-m-d", strtotime($row['date_posted']));
-                        $comment = $row['comment'];
-                        ?>
+                <?php endwhile; ?>
 
-                        <li class="comment">
-                            <p class="comment-meta">
-                                <span class="comment-username">@<?php echo $username ?></span>
-                                <span class="comment-date-posted"><?php echo $date_posted ?></span>
-                            </p>
-                            <p class="comment-body"><?php echo $comment ?></p>
-                        </li>
+            </ul>
 
-                    <?php endwhile; ?>
+            <div class="divider"></div>
 
-                </ul>
+            <h2>Post a comment:</h2>
 
-                <div class="divider"></div>
+            <form class="form" action="./insert_comment.php" method="post">
+                <input class="form-username" name="username" type="text" placeholder="username">
+                <textarea class="form-comment" name="comment" rows="10" placeholder="say something..."></textarea>
 
-                <h2>Post a comment:</h2>
+                <div class="buttons">
+                    <a class="button-reset" href="./reset_db.php">Reset</a>
+                    <input class="button-submit" type="submit" value="Submit">
+                </div>
+            </form>
 
-                <form class="form" action="./insert_comment.php" method="post">
-                    <input class="form-username" name="username" type="text" placeholder="<username>">
-                    <textarea class="form-comment" name="comment" rows="10" placeholder="<place your comment>"></textarea>
+        <?php else:
+            require_once './reset_db.php';
+        endif; ?>
 
-                    <div class="buttons">
-                        <a class="button-reset" href="./reset_db.php">Reset</a>
-                        <input class="button-submit" type="submit" value="Submit">
-                    </div>
-                </form>
-
-            <?php else:
-                require_once './reset_db.php';
-            endif; ?>
-            
-        </div>
     </div>
 </body>
 </html>
