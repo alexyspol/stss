@@ -156,3 +156,9 @@ h1 {
     cursor: pointer;
     font-family: inherit;
 }
+
+details {
+    overflow: auto;
+    max-width: 100%;
+    max-width: 40em;
+}

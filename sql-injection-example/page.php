@@ -55,9 +55,7 @@
 
         <details>
             <summary>View SQL</summary>
-            <pre>
-                <?php echo $sql; ?>
-            </pre>
+            <pre><?php echo $sql; ?></pre>
         </details>
     <?php endif; ?>
 
